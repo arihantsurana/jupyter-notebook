@@ -1,0 +1,15 @@
+version: "3.2"
+services:
+    unit_test:
+        image: jupyter-notebook
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8888:8888"
+        environment:
+            USE_HTTPS: "no"
+            PASSWORD: "12345"
+        volumes:
+            - ~/.aws:/home/.aws
+            - ./notebooks:/home/jovyan/work
